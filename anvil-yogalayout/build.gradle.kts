@@ -4,6 +4,11 @@ plugins {
 	id("dev.inkremental.module")
 }
 
+repositories {
+    mavenLocal()
+    jcenter()
+}
+
 android {
     defaultConfig {
         missingDimensionStrategy("dev.inkremental.variant.anvil", "sdk-17")
