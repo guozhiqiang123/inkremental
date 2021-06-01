@@ -55,4 +55,3 @@ fun registerGlobalTask(name: String, subprojectTask: String) = tasks.register<Ta
 
 registerGlobalTask("generateAndCheck", "check")
 registerGlobalTask("generateAndPublishLocally", "publishToMavenLocal")
-registerGlobalTask("generateAndPublish", "publishAllPublicationsToBintrayRepository")
