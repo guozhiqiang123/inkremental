@@ -119,16 +119,6 @@ dependencies {
 Don't forget to add your project to the root `settings.gradle.kts` and mention it in root `build.gradle.kts`
 so that common build and publish tasks would catch it.
 
-# Publishing
-
-Metadata for publishing is mostly declared at root `gradle.properties` file. To publish
-artifacts to repository, you should declare following environment variables:
-
-* `BINTRAY_USER`: username of Bintray account.
-* `BINTRAY_API_KEY`: API key for Bintray, can be found [in profile settings](https://bintray.com/profile/edit).
-* `BINTRAY_REPO` *(optional)*: overrides repo declared in properties file, can be used to test
-   publishing with different Maven repository.
-
 # Notes
 
 * To disable code generation on every build, you can run Gradle
