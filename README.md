@@ -38,7 +38,7 @@ same thing, so no performance loss here).
 With Kotlin Gradle DSL
 ```kotlin
 repositories {
-    maven(url = "https://dl.bintray.com/inkremental/maven")
+    mavenCentral()
 }
 dependencies {
     //For Lollipop as min SDK target 
@@ -60,7 +60,7 @@ dependencies {
  Or with Groovy Gradle DSL
  ```groovy
  repositories {
-     maven { url "https://dl.bintray.com/inkremental/maven" }
+    mavenCentral()
  }
  dependencies {
      //For Lollipop as min SDK target

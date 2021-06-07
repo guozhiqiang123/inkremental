@@ -27,9 +27,8 @@ subprojects {
 
     repositories {
         mavenLocal()
-        maven(url = "https://dl.bintray.com/inkremental/maven")
+        mavenCentral()
         google()
-        jcenter()
     }
 
     val GROUP: String by project
@@ -56,4 +55,3 @@ fun registerGlobalTask(name: String, subprojectTask: String) = tasks.register<Ta
 
 registerGlobalTask("generateAndCheck", "check")
 registerGlobalTask("generateAndPublishLocally", "publishToMavenLocal")
-registerGlobalTask("generateAndPublish", "publishAllPublicationsToBintrayRepository")

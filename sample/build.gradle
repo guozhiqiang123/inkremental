@@ -1,6 +1,10 @@
 apply plugin: 'com.android.application'
 apply plugin: 'org.jetbrains.kotlin.android'
 
+repositories {
+    jcenter()
+}
+
 android {
     compileSdkVersion 28
 
