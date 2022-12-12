@@ -1,12 +1,13 @@
 
 # Inkremental - reactive views for Android
 
+## Project status
+
+The library is not being maintained. [Jetpack Compose](https://developer.android.com/jetpack/compose) is a main way to do concise declarative UI in Android, and [Compose Multiplatform](https://www.jetbrains.com/lp/compose-mpp/) by JetBrains extends it even further by covering Desktop, Web, and at some point iOS. If you need any suggestions on migration, you can hit us via Telegram at [@android_declarative](https://t.me/android_declarative).
+
+<br/>
+
 [![Build Status](https://travis-ci.org/inkremental/anvil.svg?branch=master)](https://travis-ci.org/inkremental/anvil)
-[![Android Weekly](https://img.shields.io/badge/Android%20Weekly-%23193-brightgreen.svg)](http://androidweekly.net/issues/issue-193)
-
-[![Join Slack (en)](https://img.shields.io/badge/inkremental-Join%20chat%20%28en%29-4A154B?logo=slack)](https://kotlinlang.slack.com/messages/inkremental)
-[![Join Telegram (ru)](https://img.shields.io/badge/inkremental-Join%20chat%20%28ru%29-2CA5E0?logo=telegram)](https://t.me/inkremental)
-
 
 <br/>
 
