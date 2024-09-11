@@ -1,17 +1,17 @@
 package dev.inkremental
 
 import android.app.Activity
-import android.app.Fragment
 import android.content.Context
 import android.content.res.Configuration
 import android.content.res.Resources
-import android.os.Build
-import android.util.AttributeSet
 import android.util.TypedValue
 import android.view.View
 import androidx.annotation.IdRes
 import androidx.annotation.LayoutRes
-import dev.inkremental.dsl.android.*
+import dev.inkremental.dsl.android.Dip
+import dev.inkremental.dsl.android.Px
+import dev.inkremental.dsl.android.Size
+import dev.inkremental.dsl.android.Sp
 import dev.inkremental.dsl.android.view.ViewScope
 import kotlin.math.roundToInt
 import kotlin.reflect.KClass
@@ -21,16 +21,24 @@ fun v(c: KClass<out View>, r: () -> Unit = {}) {
     r()
     end()
 }
-inline fun <reified T: View> v(noinline r: () -> Unit = {}) = v(T::class, r)
 
-inline fun <reified T: View, reified S: ViewScope> v(s: S, noinline r: S.() -> Unit = {}) = v(T::class, r.bind(s))
+inline fun <reified T : View> v(noinline r: () -> Unit = {}) = v(T::class, r)
 
-inline fun <reified S: ViewScope> xml(@LayoutRes layoutId: Int, s: S, noinline r: S.() -> Unit = {}) = xml(layoutId, r.bind(s))
+inline fun <reified T : View, reified S : ViewScope> v(s: S, noinline r: S.() -> Unit = {}) =
+    v(T::class, r.bind(s))
+
+inline fun <reified S : ViewScope> xml(
+    @LayoutRes layoutId: Int,
+    s: S,
+    noinline r: S.() -> Unit = {}
+) = xml(layoutId, r.bind(s))
+
 fun xml(@LayoutRes layoutId: Int, r: () -> Unit = {}) {
     start(layoutId)
     r()
     end()
 }
+
 fun start(@LayoutRes layoutId: Int) = Inkremental.currentMount()?.iterator?.start(null, layoutId)
 fun end() = Inkremental.currentMount()?.iterator?.end()
 fun skip() = Inkremental.currentMount()?.iterator?.skip()
@@ -58,11 +66,11 @@ fun sip(value: Float): Float = TypedValue.applyDimension(
 
 fun sip(value: Int): Int = sip(value.toFloat()).roundToInt()
 
-fun <S: ViewScope> withId(@IdRes id: Int, scope : S, r: S.() -> Unit): View {
+fun <S : ViewScope> withId(@IdRes id: Int, scope: S, r: S.() -> Unit): View {
     var v = Inkremental.currentView<View>()
     requireNotNull(v) { "Anvil.currentView() is null" }
     v = v.findViewById(id)
-    requireNotNull(v) { "No view found for ID $id" } // TODO convert id to string
+    requireNotNull(v) { "No view found for ID ${id.idString}" }
     return Inkremental.mount(v, r.bind(scope))
 }
 
@@ -70,31 +78,34 @@ fun withId(@IdRes id: Int, r: () -> Unit): View {
     var v = Inkremental.currentView<View>()
     requireNotNull(v) { "Anvil.currentView() is null" }
     v = v.findViewById(id)
-    requireNotNull(v) { "No view found for ID $id" } // TODO convert id to string
+    requireNotNull(v) { "No view found for ID ${id.idString}" }
     return Inkremental.mount(v, r)
 }
 
 val isPortrait: Boolean
     get() = r.configuration.orientation == Configuration.ORIENTATION_PORTRAIT
 
+internal val Int.idString
+    get() = r.getResourceName(this)
+
 abstract class RootViewScope {
 
-    val Int.dp : Dip
+    val Int.dp: Dip
         get() = Dip(this)
 
-    val Float.sp : Sp
+    val Float.sp: Sp
         get() = Sp(this)
 
-    val Int.px : Px
+    val Int.px: Px
         get() = Px(this)
 
-    val Int.sizeDp : Size.EXACT
+    val Int.dpSize: Size.EXACT
         get() = Size.EXACT(this.dp.toPx())
 
-    val Int.sizePx : Size.EXACT
+    val Int.pxSize: Size.EXACT
         get() = Size.EXACT(this.px)
 
-    fun Dip.toPx() : Px {
+    fun Dip.toPx(): Px {
         return Px(dip(this.value))
     }
 
@@ -116,7 +127,3 @@ fun Activity.renderable(
 fun Activity.renderableContentView(
     r: () -> Unit
 ): View = renderable(r).also { setContentView(it) }
-
-fun Fragment.renderable(
-    r: () -> Unit
-): View = renderable(if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) context else activity, r)
