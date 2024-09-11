@@ -13,7 +13,7 @@ fun loadProperties(fileName: String) =
                 file("$rootDir/$fileName").inputStream().use {
                     props.load(it)
                 }
-            } catch(e: java.io.FileNotFoundException) {
+            } catch (e: java.io.FileNotFoundException) {
                 // do nothing
             }
         }
@@ -29,6 +29,7 @@ subprojects {
         mavenLocal()
         mavenCentral()
         google()
+        maven("https://maven.aliyun.com/repository/jcenter")
     }
 
     val GROUP: String by project
@@ -49,6 +50,7 @@ val mainSubprojects = listOf(
     "anvil-constraintlayout",
     "anvil-yogalayout"
 )
+
 fun registerGlobalTask(name: String, subprojectTask: String) = tasks.register<Task>(name) {
     setDependsOn(mainSubprojects.map { ":$it:$subprojectTask" })
 }
