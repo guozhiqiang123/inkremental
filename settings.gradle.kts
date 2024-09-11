@@ -16,8 +16,6 @@ pluginManagement {
 
 rootProject.name = "inkremental-root"
 
-includeBuild("meta")
-
 include(
     ":anvil",
     ":anvil-support-v4",

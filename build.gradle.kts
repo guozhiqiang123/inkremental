@@ -3,7 +3,7 @@ plugins {
     id("org.jetbrains.kotlin.android") version "1.4.32" apply false
     id("com.android.application") version "3.5.2" apply false
     id("com.android.library") version "3.5.2" apply false
-    id("dev.inkremental.module") version "0.7.1" apply false
+    id("dev.inkremental.module") version "0.15" apply false
 }
 
 fun loadProperties(fileName: String) =
