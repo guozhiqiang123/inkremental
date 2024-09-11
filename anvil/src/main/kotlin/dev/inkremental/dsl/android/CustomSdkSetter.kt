@@ -56,11 +56,11 @@ fun ViewScope.init(action: (View) -> Unit) = attr(INIT_LITERAL, action)
 fun ViewScope.size(w: Size, h: Size) = attr("size", w to h)
 fun ViewScope.tag(key: Int, value: Any?) = attr("tag", key to value)
 
-fun ViewScope.padding(left: Dip = 0.dp, top: Dip = 0.dp, right: Dip = 0.dp, bottom: Dip = 0.dp) = attr("padding", listOf(left.value, top.value, right.value, bottom.value))
+fun ViewScope.padding(start: Dip = 0.dp, top: Dip = 0.dp, end: Dip = 0.dp, bottom: Dip = 0.dp) = attr("padding", listOf(start.value, top.value, end.value, bottom.value))
 fun ViewScope.padding(value: Dip) = padding(value, value, value, value)
 fun ViewScope.padding(horizontal: Dip = 0.dp, vertical: Dip = 0.dp) = padding(horizontal, vertical, horizontal, vertical)
 
-fun ViewScope.margin(left: Dip = 0.dp, top: Dip = 0.dp, right: Dip = 0.dp, bottom: Dip = 0.dp) = attr("margin", listOf(left.value, top.value, right.value, bottom.value))
+fun ViewScope.margin(start: Dip = 0.dp, top: Dip = 0.dp, end: Dip = 0.dp, bottom: Dip = 0.dp) = attr("margin", listOf(start.value, top.value, end.value, bottom.value))
 fun ViewScope.margin(value: Dip) = margin(value, value, value, value)
 fun ViewScope.margin(horizontal: Dip = 0.dp, vertical: Dip = 0.dp) = margin(horizontal, vertical, horizontal, vertical)
 
