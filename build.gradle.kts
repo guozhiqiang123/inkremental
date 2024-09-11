@@ -22,8 +22,8 @@ fun loadProperties(fileName: String) =
 loadProperties("local.properties")
 
 subprojects {
-    extra["junit_version"] = "4.12"
-    extra["mockito_version"] = "2.23.0"
+    extra["junit_version"] = "4.13.2"
+    extra["mockito_version"] = "4.6.1"
 
     repositories {
         mavenLocal()
