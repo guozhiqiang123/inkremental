@@ -48,7 +48,7 @@ class SimpleFragment : Fragment() {
                     }
 
                     button {
-                        size(WRAP, 50.sizeDp)
+                        size(WRAP, 50.dpSize)
                         margin(8.dp, 0.dp)
 
                         text("Tock")

@@ -27,7 +27,7 @@ class ListActivity : AppCompatActivity() {
                 size(MATCH, MATCH)
 
                 linearLayout {
-                    size(MATCH, 50.sizeDp)
+                    size(MATCH, 50.dpSize)
 
                     button {
                         size(WRAP, MATCH)
@@ -91,7 +91,7 @@ class ListActivity : AppCompatActivity() {
 
     private fun itemWidget(itemValue: Int) {
         frameLayout {
-            size(if (listStyle != 2) MATCH else 100.sizeDp, if (listStyle == 3) 150.sizeDp else 50.sizeDp)
+            size(if (listStyle != 2) MATCH else 100.dpSize, if (listStyle == 3) 150.dpSize else 50.dpSize)
             margin(value = 1.dp)
             backgroundResource(R.color.children_stroke)
 
@@ -111,7 +111,7 @@ class ListActivity : AppCompatActivity() {
 
     private fun sectionWidget(itemValue: String) {
         frameLayout {
-            size(MATCH, if (listStyle == 3) 150.sizeDp else 50.sizeDp)
+            size(MATCH, if (listStyle == 3) 150.dpSize else 50.dpSize)
             margin(value = 1.dp)
             backgroundResource(R.color.children_stroke)
 

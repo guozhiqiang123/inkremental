@@ -29,13 +29,13 @@ class YogaActivity : AppCompatActivity() {
                 flexDirection(if (reversed) YogaFlexDirection.COLUMN_REVERSE else YogaFlexDirection.COLUMN)
 
                 yogaLayout {
-                    size(MATCH, 50.sizeDp)
+                    size(MATCH, 50.dpSize)
                     backgroundResource(R.drawable.children_background)
                     flexDirection(YogaFlexDirection.ROW)
                     alignItems(YogaAlign.CENTER)
 
                     imageView {
-                        size(50.sizeDp, 50.sizeDp)
+                        size(50.dpSize, 50.dpSize)
                         imageResource(R.mipmap.ic_launcher)
                         flex(1f)
                     }
@@ -46,13 +46,13 @@ class YogaActivity : AppCompatActivity() {
                     }
                 }
                 yogaLayout {
-                    size(MATCH, 50.sizeDp)
+                    size(MATCH, 50.dpSize)
                     backgroundResource(R.drawable.children_background)
                     flexDirection(YogaFlexDirection.ROW_REVERSE)
                     alignItems(YogaAlign.FLEX_START)
 
                     imageView {
-                        size(50.sizeDp, 50.sizeDp)
+                        size(50.dpSize, 50.dpSize)
                         imageResource(R.mipmap.ic_launcher)
                         flex(0f)
                     }
@@ -63,13 +63,13 @@ class YogaActivity : AppCompatActivity() {
                     }
                 }
                 yogaLayout {
-                    size(MATCH, 50.sizeDp)
+                    size(MATCH, 50.dpSize)
                     backgroundResource(R.drawable.children_background)
                     flexDirection(YogaFlexDirection.ROW_REVERSE)
                     alignItems(YogaAlign.FLEX_START)
 
                     imageView {
-                        size(50.sizeDp, 50.sizeDp)
+                        size(50.dpSize, 50.dpSize)
                         imageResource(R.mipmap.ic_launcher)
                         flex(0f)
                         marginRightPercent(30f)
