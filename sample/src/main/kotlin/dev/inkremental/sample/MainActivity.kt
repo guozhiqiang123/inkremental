@@ -120,6 +120,19 @@ class MainActivity : AppCompatActivity() {
                     paintFlags(Paint.UNDERLINE_TEXT_FLAG)
                     textColor(Color.BLUE)
                 }
+
+                textView {
+                    text("SwipeRefreshLayout example")
+                    onClick {
+                        startActivity(Intent(context, SwipeRefreshActivity::class.java))
+                    }
+
+                    size(WRAP, WRAP)
+                    padding(16.dp)
+
+                    paintFlags(Paint.UNDERLINE_TEXT_FLAG)
+                    textColor(Color.BLUE)
+                }
             }
 
         }
